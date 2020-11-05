@@ -52,7 +52,7 @@ pipeline {
 	                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
 	                        withCredentials([kubeconfigFile(credentialsId: 'kubernetes_config', 
 	                        variable: 'KUBECONFIG')]) {
-                            sh "ansible-playbook  playbook.yml --extra-vars image_id=${params.docker_repo}/${params.ImageName}:${params.ImageTag}"
+                            sh "ansible-playbook  playbook.yml --extra-vars image_id=${params.docker_repo}/${params.ImageName}:${params.ImageTag} -vvvv"
                           }
 	                }
                     }
