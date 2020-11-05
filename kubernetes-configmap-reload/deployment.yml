@@ -3,7 +3,10 @@ kind: Deployment
 metadata:
   name: kubernetes-configmap-reload
 spec:
-  replicas: 3
+  replicas: 2
+  selector:
+    matchLabels:
+       app: kubernetes-configmap-reload
   template:
     metadata:
       labels:
